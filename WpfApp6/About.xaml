@@ -1,0 +1,20 @@
+<controls:Grid x:Name="AboutPage" Visibility="Collapsed"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:controls="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:local="clr-namespace:WpfApp6"
+               xmlns:wpf="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+               x:Class="WpfApp6.About">
+    <controls:Grid.Resources>
+        <local:About x:Key="AboutInstance" />
+        <!-- Define an instance of the About class -->
+    </controls:Grid.Resources>
+    <controls:StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <controls:TextBlock Text="This is the official frost launcher, We are hosting chapter 2 season 4. Join the discord"/>
+        <controls:TextBlock Text="https://discord.gg/jfaSP9dQYc" FontWeight="Bold" Foreground="Blue" TextDecorations="Underline" Margin="0,10,0,0" Cursor="Hand">
+            <controls:TextBlock.InputBindings>
+                <wpf:MouseBinding Gesture="LeftClick" Command="{Binding Source={StaticResource AboutInstance}, Path=OpenDiscordCommand}" />
+            </controls:TextBlock.InputBindings>
+        </controls:TextBlock>
+    </controls:StackPanel>
+</controls:Grid>

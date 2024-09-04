@@ -1,0 +1,57 @@
+﻿<Window x:Class="WpfApp6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Skibidy" Height="413" Width="708"
+        Background="#333333">
+
+    <Window.Resources>
+        <Style x:Key="HoverTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#808080"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="38.915"/>
+            <ColumnDefinition Width="22.608"/>
+            <ColumnDefinition Width="605*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="28*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Discord Profile Picture -->
+        <Image x:Name="ProfilePicture" Grid.Column="0" Source="{Binding DiscordAvatar}" Width="50" Height="50" Margin="14,334,603,0" Grid.ColumnSpan="3" VerticalAlignment="Top"/>
+
+        <!-- Home Button with Icon -->
+        <Button x:Name="HomeButton" Background="#333333" Foreground="#808080" BorderThickness="0" Padding="10" Margin="0,10,0,0" VerticalAlignment="Top" Click="HomeButton_Click" FontFamily="Segoe UI" FontSize="12" Grid.ColumnSpan="3" Height="48" Width="79">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="" FontFamily="Segoe MDL2 Assets" Foreground="#808080" VerticalAlignment="Center" Margin="0,0,4,0" Style="{StaticResource HoverTextStyle}"/>
+                <TextBlock Text="Home" Style="{StaticResource HoverTextStyle}"/>
+            </StackPanel>
+        </Button>
+
+        <!-- Settings Button with Icon -->
+        <Button x:Name="SettingsButton" Background="#333333" Foreground="#808080" BorderThickness="0" Padding="10" VerticalAlignment="Top" Click="SettingsButton_Click" Margin="0,58,0,0" Width="90" FontFamily="Segoe UI" FontSize="12" Grid.ColumnSpan="3" Height="35">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="" FontFamily="Segoe MDL2 Assets" Foreground="#808080" VerticalAlignment="Center" Margin="0,0,4,0" Style="{StaticResource HoverTextStyle}"/>
+                <TextBlock Text="Settings" Style="{StaticResource HoverTextStyle}"/>
+            </StackPanel>
+        </Button>
+
+        <!-- NavigationView for Launcher -->
+        <Grid Grid.Column="2" Margin="33,0,0,0" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="139.24"/>
+                <RowDefinition Height="126.787"/>
+            </Grid.RowDefinitions>
+            <!-- Content Frame -->
+            <Border x:Name="ContentFrame" Background="#222" CornerRadius="5" HorizontalAlignment="Center" Width="612" Grid.RowSpan="3"/>
+        </Grid>
+    </Grid>
+</Window>
